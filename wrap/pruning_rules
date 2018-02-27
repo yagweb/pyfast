@@ -1,0 +1,41 @@
+#date structure, types:
+#    XX_ParameterType: store data read from config file
+#    StateType, InputType (u), OutputType, ...
+#varibles:
+#    x, xd,z, OtherSt: states, continuous, discrete, constraint, other
+#    p, u, y: parameters, current inputs and outputs
+#    m:  misc, optimization variables??
+#    Input & InputTimes: history inputs (all the u)
+#    y_prev: history outputs
+
+private *
+
+module FAST_Data:
+    public *
+    
+#types for fast framework
+module FAST_Types:
+    public *
+            
+#types for fast framework
+module AeroDyn_Types:
+    private *
+    type AD_InitInputType:
+        public * # InputFile etc
+        
+module ElastoDyn_Types:
+    private *
+    type ED_InitInputType:
+        public * # InputFile, etc
+    type ED_InputFile:
+        private *
+        public DT, Gravity 
+        
+module ServoDyn_Types:
+    private *
+    type SrvD_InitInputType:
+        private *
+        public InputFile # Name of the input file
+    # data read from file
+    type SrvD_InputFile:
+        public * #DT, PCMode, TPCOn, etc.
